@@ -320,7 +320,7 @@ Inside Diffusion Transformers for Improved Training
       <!-- 方法图片 -->
       <div style="text-align: center; margin: 2rem 0;">
         <img src="./static/images/page1.png" alt="Overview Figure" 
-             style="max-width: 100%; height: auto; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
+             style="max-width: 100%; height: auto; border-radius: 8px;">
         <p style="margin-top: 0.5rem; font-size: 0.9rem; color: #666; text-align: left;">
           <strong>Figure 1:</strong> <strong>Left</strong>: PCA visualization of latent features from both shallow (layer 8) and deeper (layer 16) blocks of SiT with t = 0.6 during
             training. Both layers progressively learn clean and discriminative representations, but the shallow layer learns such representations at a
@@ -336,14 +336,14 @@ Inside Diffusion Transformers for Improved Training
 <!-- Framework section -->
 <section class="section" style="padding-top: 2rem; padding-bottom: 2rem;">
   <div class="container is-max-desktop">
-    <h2 class="title is-3">Overview</h2>
+    <h2 class="title is-3">Method</h2>
     <div class="content has-text-justified">
       <p>
          We aim to find a more <strong>discriminative and semantically enriched feature representation inside the DiT model</strong> to guide the training of itself, achieving self-transcendence. 
       </p>
 
       <p>
-        we propose a two-stage training framework, namely <strong>Self-Transcendence</strong>. 
+        We propose a two-stage training framework, namely <strong>Self-Transcendence</strong>. 
         Firstly, we use clean VAE features as guidance to help the model distinguish useful information from noise in shallow layers.
         After a certain number of iterations, the model has learned more meaningful representations. We then freeze this model
         and use its representation as a fixed teacher. To enhance the semantic expression in the features, we build a self-guided representation that better aligns with the target conditions.
@@ -353,10 +353,84 @@ Inside Diffusion Transformers for Improved Training
       <!-- 方法图片 -->
       <div style="text-align: center; margin: 2rem 0;">
         <img src="./static/images/framework.png" alt="Framework Figure" 
-             style="max-width: 100%; height: auto; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
+             style="max-width: 70%; height: auto; border-radius: 8px;">
         <p style="margin-top: 0.5rem; font-size: 0.9rem; color: #666; text-align: left;">
           <strong>Figure 2:</strong> The framework of our proposed Self-Transcendence.
-          The spark icon indicates that the parameters of this layer are trainable, while the snowflake icon indicates that they are frozen.
+          The spark icon indicates that the parameters of this layer are trainable, while the snowflake icon indicates that they are frozen.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+  
+<!-- Result section -->
+<section class="section" style="padding-top: 2rem; padding-bottom: 2rem;">
+  <div class="container is-max-desktop">
+    <h2 class="title is-3">Result</h2>
+    <div class="content has-text-justified">
+      
+      <!-- 第三个子部分 -->
+      <h3 style="font-size: 1.4rem; font-weight: bold; color: #2c3e50; margin: 2rem 0 1rem 0;">
+        Self-Transcendence demonstrates superior class separability.
+      </h3>
+      <p>
+        Despite the powerful semantic separability obtained by REPA, it heavily relies on extensive and time-consuming pre-training
+        with external data, which may not always be feasible and desirable. Though some recent methods such as LayerSync and SRA achieve
+        self-acceleration, their features lack stable structural guidance and semantic separability for training. Instead, our
+        Self-Transcendence not only achieves self-acceleration, but also demonstrates comparable semantic separability with REPA.
+  
+      </p>
+      
+      <!-- 图片3 -->
+      <div style="text-align: center; margin: 2rem 0;">
+        <img src="./static/images/motivation.png" alt="Motivation Study" 
+             style="max-width: 100%; height: auto; border-radius: 8px;">
+        <p style="margin-top: 0.5rem; font-size: 0.9rem; color: #666; text-align: left;">
+          <strong>Figure 3:</strong> t-SNE visualizations of the guiding features extracted from (a) REPA, (b) LayerSync, (c) VAE features, and (d)
+          our Self-Transcendence with t = 0.4 in the 200K iteration of SiTXL/2. Different colors represent different classes. As REPA, our
+          internal guiding features demonstrate superior class separability.
+      </div>
+
+      <!-- 第1个子部分 -->
+      <h3 style="font-size: 1.4rem; font-weight: bold; color: #2c3e50; margin: 2rem 0 1rem 0;">
+         Self-Transcendence is easier, more efficient and more effective.
+      </h3>
+      <p>
+        Compared to methods using external features like REPA, our Self-Transcendence is easier and more efficient without using external data. 
+        And still, it outperforms all other self-contained techniques,
+        achieving results comparable to or even better than REPA.
+      </p>
+      
+      <!-- 图片1 -->
+      <div style="text-align: center; margin: 2rem 0;">
+        <img src="./static/images/result.png" alt="Quantitative Results" 
+             style="max-width: 100%; height: auto; border-radius: 8px;">
+        <p style="margin-top: 0.5rem; font-size: 0.9rem; color: #666; text-align: left;">
+          <strong>Table 1:</strong> Comparisons with acceleration methods across different backbones on ImageNet. ↓ and ↑ indicate
+          whether lower or higher values are better, respectively
+        </p>
+      </div>
+      
+      <!-- 第2个子部分 -->
+      <h3 style="font-size: 1.4rem; font-weight: bold; color: #2c3e50; margin: 2rem 0 1rem 0;">
+        Self-Transcendence obtains better structural generation.
+      </h3>
+      <p>
+        We compare the vanilla SiT model, REPA-enhanced model, and our trained model across 100K to 400K iterations on two ImageNet classes, as
+        illustrated in Fig.4. Both our model and REPA show faster
+        convergence than the vanilla SiT model, and our method
+        tends to obtain better structural generation. For example, in
+        the shoe class, our method generates more realistic shapes
+      </p>
+      
+      <!-- 图片2 -->
+      <div style="text-align: center; margin: 2rem 0;">
+        <img src="./static/images/interactivegen.png" alt="interactivegen Figure" 
+             style="max-width: 100%; height: auto; border-radius: 8px;">
+        <p style="margin-top: 0.5rem; font-size: 0.9rem; color: #666; text-align: left;">
+          <strong>Figure 4:</strong> Visual comparison of generated samples from SiT-XL/2 models at different training iterations. For all models, we apply the same seed, noise, and sampling strategy with a CFG scale of 4.0.
         </p>
       </div>
     </div>
@@ -367,47 +441,13 @@ Inside Diffusion Transformers for Improved Training
 <section class="section" id="BibTeX">
   <div class="container is-max-desktop content">
     <h2 class="title">BibTeX</h2>
-    <pre><code>@article{park2021nerfies,
-  author    = {Park, Keunhong and Sinha, Utkarsh and Barron, Jonathan T. and Bouaziz, Sofien and Goldman, Dan B and Seitz, Steven M. and Martin-Brualla, Ricardo},
-  title     = {Nerfies: Deformable Neural Radiance Fields},
-  journal   = {ICCV},
-  year      = {2021},
+    <pre><code>@inproceedings{sun2026beyond,
+  title     = {Beyond External Guidance: Unleashing the Semantic Richness Inside Diffusion Transformers for Improved Training},
+  author    = {Lingchen Sun and Rongyuan Wu and Zhengqiang Zhang and Ruibin Li and Yujing Sun and Shuaizheng Liu and Lei Zhang},
+  year      = {2026},
 }</code></pre>
   </div>
 </section>
-
-
-<footer class="footer">
-  <div class="container">
-    <div class="content has-text-centered">
-      <a class="icon-link"
-         href="./static/videos/nerfies_paper.pdf">
-        <i class="fas fa-file-pdf"></i>
-      </a>
-      <a class="icon-link" href="https://github.com/keunhong" class="external-link" disabled>
-        <i class="fab fa-github"></i>
-      </a>
-    </div>
-    <div class="columns is-centered">
-      <div class="column is-8">
-        <div class="content">
-          <p>
-            This website is licensed under a <a rel="license"
-                                                href="http://creativecommons.org/licenses/by-sa/4.0/">Creative
-            Commons Attribution-ShareAlike 4.0 International License</a>.
-          </p>
-          <p>
-            This means you are free to borrow the <a
-              href="https://github.com/nerfies/nerfies.github.io">source code</a> of this website,
-            we just ask that you link back to this page in the footer.
-            Please remember to remove the analytics code included in the header of the website which
-            you do not want on your website.
-          </p>
-        </div>
-      </div>
-    </div>
-  </div>
-</footer>
 
 </body>
 </html>
