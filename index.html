@@ -304,9 +304,10 @@ Inside Diffusion Transformers for Improved Training
       <div style="text-align: center; margin: 2rem 0;">
         <img src="./static/images/page1.png" alt="Overview Figure" 
              style="max-width: 100%; height: auto; border-radius: 8px;">
-        <p style="margin-top: 0.5rem; font-size: 0.9rem; color: #666; text-align: left;">
-          <strong>Figure 1:</strong> Comparison of guiding features from different methods. Our proposed approach produces
-            clearer structural organization and more semantically richer features, as pre-trained DINO used in REPA.
+        <p style="margin-top: 0.5rem; font-size: 0.9rem; color: #666;">
+          REPA leverages pre-trained DINO model features to effectively highlight semantically meaningful regions. 
+          In comparison, SRA and LayerSync rely on internal features from the in-training model, whose weak semantic representation limits their guidance for shallow layers. 
+          Compared with the pre-trained DINO features used in REPA, our approach generates features with <strong>clearer structural organization and richer semantics</strong>.
         </p>
       </div>
     </div>
@@ -319,14 +320,17 @@ Inside Diffusion Transformers for Improved Training
   <div class="container is-max-desktop">
     <h2 class="title is-3">Method</h2>
     <div class="content has-text-justified">
-      <p>
-         We aim to find a more <strong>discriminative and semantically enriched feature representation inside the DiT model</strong> to guide the training of itself, achieving self-transcendence. 
-      </p>
 
       <p>
         We propose a two-stage training framework, namely <strong>Self-Transcendence</strong>. 
+      </p>
+      <p>
         Firstly, we use clean VAE features as guidance to help the model distinguish useful information from noise in shallow layers.
-        After a certain number of iterations, the model has learned more meaningful representations. We then freeze this model
+        After a certain number of iterations, the model has learned more meaningful representations. 
+      </p>
+      
+      <p>  
+        We then freeze this model
         and use its representation as a fixed teacher. To enhance the semantic expression in the features, we build a self-guided representation that better aligns with the target conditions.
       </p>
       
@@ -335,8 +339,8 @@ Inside Diffusion Transformers for Improved Training
       <div style="text-align: center; margin: 2rem 0;">
         <img src="./static/images/framework.png" alt="Framework Figure" 
              style="max-width: 70%; height: auto; border-radius: 8px;">
-        <p style="margin-top: 0.5rem; font-size: 0.9rem; color: #666; text-align: left;">
-          <strong>Figure 2:</strong> The framework of our proposed Self-Transcendence.
+        <p style="margin-top: 0.5rem; font-size: 0.9rem; color: #666;">
+          The <strong>framework</strong> of our proposed Self-Transcendence.
           The spark icon indicates that the parameters of this layer are trainable, while the snowflake icon indicates that they are frozen.
         </p>
       </div>
@@ -369,7 +373,7 @@ Inside Diffusion Transformers for Improved Training
         <img src="./static/images/motivation.png" alt="Motivation Study" 
              style="max-width: 70%; height: auto; border-radius: 8px;">
         <p style="margin-top: 0.5rem; font-size: 0.9rem; color: #666; text-align: left;">
-          <strong>Figure 3:</strong> t-SNE visualizations of the guiding features extracted from (a) REPA, (b) LayerSync, (c) VAE features, and (d)
+          <strong>t-SNE visualizations</strong> of the guiding features extracted from (a) REPA, (b) LayerSync, (c) VAE features, and (d)
           our Self-Transcendence with t = 0.4 in the 200K iteration of SiTXL/2. Different colors represent different classes. As REPA, our
           internal guiding features demonstrate superior class separability.
       </div>
@@ -389,7 +393,7 @@ Inside Diffusion Transformers for Improved Training
         <img src="./static/images/result.png" alt="Quantitative Results" 
              style="max-width: 100%; height: auto; border-radius: 8px;">
         <p style="margin-top: 0.5rem; font-size: 0.9rem; color: #666; text-align: left;">
-          <strong>Table 1:</strong> Comparisons with acceleration methods across different backbones on ImageNet. ↓ and ↑ indicate
+          Comparisons with acceleration methods across different backbones on ImageNet. ↓ and ↑ indicate
           whether lower or higher values are better, respectively
         </p>
       </div>
@@ -411,7 +415,7 @@ Inside Diffusion Transformers for Improved Training
         <img src="./static/images/interactivegen.png" alt="interactivegen Figure" 
              style="max-width: 100%; height: auto; border-radius: 8px;">
         <p style="margin-top: 0.5rem; font-size: 0.9rem; color: #666; text-align: left;">
-          <strong>Figure 4:</strong> Visual comparison of generated samples from SiT-XL/2 models at different training iterations. For all models, we apply the same seed, noise, and sampling strategy with a CFG scale of 4.0.
+          <strong>Visual comparison</strong> of generated samples from SiT-XL/2 models at different training iterations. For all models, we apply the same seed, noise, and sampling strategy with a CFG scale of 4.0.
         </p>
       </div>
     </div>
