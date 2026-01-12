@@ -286,11 +286,7 @@ Inside Diffusion Transformers for Improved Training
 <section class="section" style="padding-top: 2rem; padding-bottom: 2rem;">
   <div class="container is-max-desktop">
     <h2 class="title is-3">Overview</h2>
-    <div class="content has-text-justified">
-      <p>
-        We answer this question: 
-      </p>
-      
+    <div class="content has-text-justified">  
       <!-- 浅蓝色高亮框 -->
       <div style="background-color: #e8f4f8; padding: 1.5rem; border-radius: 8px; margin: 1.5rem 0; border-left: 4px solid #209cee;">
         <p style="margin-bottom: 0;">
@@ -323,9 +319,9 @@ Inside Diffusion Transformers for Improved Training
       
       <!-- 方法图片 -->
       <div style="text-align: center; margin: 2rem 0;">
-        <img src="./static/images/intro.png" alt="Overview Figure" 
+        <img src="./static/images/page1.png" alt="Overview Figure" 
              style="max-width: 100%; height: auto; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
-        <p style="margin-top: 0.5rem; font-size: 0.9rem; color: #666;">
+        <p style="margin-top: 0.5rem; font-size: 0.9rem; color: #666; text-align: left;">
           <strong>Figure 1:</strong> <strong>Left</strong>: PCA visualization of latent features from both shallow (layer 8) and deeper (layer 16) blocks of SiT with t = 0.6 during
             training. Both layers progressively learn clean and discriminative representations, but the shallow layer learns such representations at a
             slower pace compared to the deeper one. <strong>Right</strong>: Comparison of guiding features from different methods. Our proposed approach produces
@@ -335,6 +331,38 @@ Inside Diffusion Transformers for Improved Training
     </div>
   </div>
 </section>
+
+
+<!-- Framework section -->
+<section class="section" style="padding-top: 2rem; padding-bottom: 2rem;">
+  <div class="container is-max-desktop">
+    <h2 class="title is-3">Overview</h2>
+    <div class="content has-text-justified">
+      <p>
+         We aim to find a more <strong>discriminative and semantically enriched feature representation inside the DiT model</strong> to guide the training of itself, achieving self-transcendence. 
+      </p>
+
+      <p>
+        we propose a two-stage training framework, namely <strong>Self-Transcendence</strong>. 
+        Firstly, we use clean VAE features as guidance to help the model distinguish useful information from noise in shallow layers.
+        After a certain number of iterations, the model has learned more meaningful representations. We then freeze this model
+        and use its representation as a fixed teacher. To enhance the semantic expression in the features, we build a self-guided representation that better aligns with the target conditions.
+      </p>
+      
+      
+      <!-- 方法图片 -->
+      <div style="text-align: center; margin: 2rem 0;">
+        <img src="./static/images/framework.png" alt="Framework Figure" 
+             style="max-width: 100%; height: auto; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
+        <p style="margin-top: 0.5rem; font-size: 0.9rem; color: #666; text-align: left;">
+          <strong>Figure 2:</strong> The framework of our proposed Self-Transcendence.
+          The spark icon indicates that the parameters of this layer are trainable, while the snowflake icon indicates that they are frozen.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
 
 <section class="section" id="BibTeX">
   <div class="container is-max-desktop content">
