@@ -294,23 +294,30 @@ Inside Diffusion Transformers for Improved Training
       <!-- 浅蓝色高亮框 -->
       <div style="background-color: #e8f4f8; padding: 1.5rem; border-radius: 8px; margin: 1.5rem 0; border-left: 4px solid #209cee;">
         <p style="margin-bottom: 0;">
-          <strong>[Question]</strong>: Can internal features be used as effective semantic guidance signals to improve the training of DiT models? 
+          <strong>[Question]</strong>: Can <strong>internal</strong> features be used as effective semantic guidance signals to improve the training of DiT models? 
         </p>
       </div>
       <div style="background-color: #edfbf0; padding: 1.5rem; border-radius: 8px; margin: 1.5rem 0; border-left: 4px solid #48c774;">
         <p style="margin-bottom: 0;">
-          <strong>[Answer]</strong>: Yes! It can even provide <strong>better</strong> feature guidance than pretrained DINO used in REPA.
+          <strong>[Answer]</strong>: Yes! It can even provide <strong>better</strong> feature guidance than external pretrained DINO features used in REPA.
         </p>
       </div>
 
       <div style="background-color: #e8f4f8; padding: 1.5rem; border-radius: 8px; margin: 1.5rem 0; border-left: 4px solid #209cee;">
         <p style="margin-bottom: 0;">
-          <strong>[Question]</strong>: Can internal features be used as effective semantic guidance signals to improve the training of DiT models? 
+          <strong>[Question]</strong>: Could <strong>any</strong> internal feature be effective guidance? 
         </p>
       </div>
       <div style="background-color: #edfbf0; padding: 1.5rem; border-radius: 8px; margin: 1.5rem 0; border-left: 4px solid #48c774;">
         <p style="margin-bottom: 0;">
-          <strong>[Answer]</strong>: Yes! It can even provide <strong>better</strong> feature guidance than pretrained DINO used in REPA.
+          <strong>[Answer]</strong>: No. We find that the most effective guiding features should meet <strong>two criteria</strong>:
+          </p>
+          <p style="margin-bottom: 0.5rem;">
+            (1) they should have a clean structure, in the sense that they can effectively help shallow blocks distinguish noise from signal.
+          </p>
+          <p style="margin-bottom: 0;">
+            (2) they should be semantically discriminative, making it easier for shallow layers to learn effective representations.
+          </p>
         </p>
       </div>
       
