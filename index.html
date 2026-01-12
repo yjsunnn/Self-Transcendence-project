@@ -197,7 +197,7 @@ Inside Diffusion Transformers for Improved Training
 <section class="hero teaser">
   <div class="container is-max-desktop">
     <div class="hero-body">
-      <img id="teaser" src="./static/images/vis_com_512.png" alt="Teaser Image" style="width: 100%; height: auto;">
+      <img id="teaser" src="./static/images/vis_com_256.png" alt="Teaser Image" style="width: 100%; height: auto;">
       <!-- <h2 class="subtitle has-text-centered">
         <span class="dnerf">你的项目名</span> 你的项目描述文字
       </h2> -->
@@ -263,22 +263,6 @@ Inside Diffusion Transformers for Improved Training
   </div>
 </section> -->
 
-<!-- News section -->
-<section class="section" style="padding-top: 2rem; padding-bottom: 2rem;">
-  <div class="container is-max-desktop">
-    <div class="columns is-centered">
-      <div class="column">
-        <h2 class="title is-3">News</h2>
-        <div class="content">
-          <div class="news-item" style="margin-bottom: 0.8rem;">
-            📅 <strong>[Jan 2025]</strong> Our code and project page is released.
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
 
 
 <!-- Overview section -->
@@ -300,7 +284,7 @@ Inside Diffusion Transformers for Improved Training
 
       <div style="background-color: #e8f4f8; padding: 1.5rem; border-radius: 8px; margin: 1.5rem 0; border-left: 4px solid #209cee;">
         <p style="margin-bottom: 0;">
-          <strong>[Question]</strong>: Could <strong>any</strong> internal feature be effective guidance? 
+          <strong>[Question]</strong>: Could <strong>any</strong> feature be effective guidance? 
         </p>
       </div>
       <div style="background-color: #edfbf0; padding: 1.5rem; border-radius: 8px; margin: 1.5rem 0; border-left: 4px solid #48c774;">
@@ -308,10 +292,10 @@ Inside Diffusion Transformers for Improved Training
           <strong>[Answer]</strong>: No. We find that the most effective guiding features should meet <strong>two criteria</strong>:
           </p>
           <p style="margin-bottom: 0.5rem;">
-            <strong>(1)</strong> they should have a <strong>clean structure</strong>, in the sense that they can effectively help shallow blocks distinguish noise from signal.
+            <strong>(1)</strong> They should have a <strong>clean structure</strong>, in the sense that they can effectively help shallow blocks distinguish noise from signal.
           </p>
           <p style="margin-bottom: 0;">
-            <strong>(2)</strong> they should be <strong>semantically discriminative</strong>, making it easier for shallow layers to learn effective representations.
+            <strong>(2)</strong> They should be <strong>semantically discriminative</strong>, making it easier for shallow layers to learn effective representations.
           </p>
         </p>
       </div>
@@ -321,9 +305,7 @@ Inside Diffusion Transformers for Improved Training
         <img src="./static/images/page1.png" alt="Overview Figure" 
              style="max-width: 100%; height: auto; border-radius: 8px;">
         <p style="margin-top: 0.5rem; font-size: 0.9rem; color: #666; text-align: left;">
-          <strong>Figure 1:</strong> <strong>Left</strong>: PCA visualization of latent features from both shallow (layer 8) and deeper (layer 16) blocks of SiT with t = 0.6 during
-            training. Both layers progressively learn clean and discriminative representations, but the shallow layer learns such representations at a
-            slower pace compared to the deeper one. <strong>Right</strong>: Comparison of guiding features from different methods. Our proposed approach produces
+          <strong>Figure 1:</strong> <strong>Left</strong>: Comparison of guiding features from different methods. Our proposed approach produces
             more discriminative and semantically richer features, as pre-trained DINO used in REPA.
         </p>
       </div>
@@ -385,7 +367,7 @@ Inside Diffusion Transformers for Improved Training
       <!-- 图片3 -->
       <div style="text-align: center; margin: 2rem 0;">
         <img src="./static/images/motivation.png" alt="Motivation Study" 
-             style="max-width: 100%; height: auto; border-radius: 8px;">
+             style="max-width: 70%; height: auto; border-radius: 8px;">
         <p style="margin-top: 0.5rem; font-size: 0.9rem; color: #666; text-align: left;">
           <strong>Figure 3:</strong> t-SNE visualizations of the guiding features extracted from (a) REPA, (b) LayerSync, (c) VAE features, and (d)
           our Self-Transcendence with t = 0.4 in the 200K iteration of SiTXL/2. Different colors represent different classes. As REPA, our
