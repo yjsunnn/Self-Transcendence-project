@@ -313,23 +313,25 @@ Inside Diffusion Transformers for Improved Training
           <strong>[Answer]</strong>: No. We find that the most effective guiding features should meet <strong>two criteria</strong>:
           </p>
           <p style="margin-bottom: 0.5rem;">
-            (1) they should have a clean structure, in the sense that they can effectively help shallow blocks distinguish noise from signal.
+            <strong>(1)</strong> they should have a <strong>clean structure</strong>, in the sense that they can effectively help shallow blocks distinguish noise from signal.
           </p>
           <p style="margin-bottom: 0;">
-            (2) they should be semantically discriminative, making it easier for shallow layers to learn effective representations.
+            <strong>(2)</strong> they should be <strong>semantically discriminative</strong>, making it easier for shallow layers to learn effective representations.
           </p>
         </p>
       </div>
       
       <!-- 方法图片 -->
-      <!-- <div style="text-align: center; margin: 2rem 0;">
-        <img src="./static/images/overview_figure.png" alt="Overview Figure" 
+      <div style="text-align: center; margin: 2rem 0;">
+        <img src="./static/images/intro.png" alt="Overview Figure" 
              style="max-width: 100%; height: auto; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
         <p style="margin-top: 0.5rem; font-size: 0.9rem; color: #666;">
-          <strong>Figure 1:</strong> Overview of our REPresentation Alignment (REPA) method. 
-          REPA aligns diffusion model representations with pretrained visual encoder features.
+          <strong>Figure 1:</strong> <strong>Left</strong>: PCA visualization of latent features from both shallow (layer 8) and deeper (layer 16) blocks of SiT with t = 0.6 during
+            training. Both layers progressively learn clean and discriminative representations, but the shallow layer learns such representations at a
+            slower pace compared to the deeper one. <strong>Right</strong>: Comparison of guiding features from different methods. Our proposed approach produces
+            more discriminative and semantically richer features, as pre-trained DINO used in REPA.
         </p>
-      </div> -->
+      </div>
     </div>
   </div>
 </section>
