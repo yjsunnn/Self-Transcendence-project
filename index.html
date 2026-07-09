@@ -38,7 +38,7 @@
   <link rel="stylesheet"
         href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
   <link rel="stylesheet" href="./static/css/index.css">
-  <link rel="icon" href="./static/images/funds-line.svg">
+  <link rel="icon" href="./static/images/logo.png">
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script defer src="./static/js/fontawesome.all.min.js"></script>
@@ -94,8 +94,7 @@
     <div class="container is-max-desktop">
       <div class="columns is-centered">
         <div class="column has-text-centered">
-          <h1 class="title is-1 publication-title">Self-transcendence: Is External Feature Guidance Indispensable for Accelerating Diffusion Transformer Training?
-</h1>
+          <h1 class="title is-1 publication-title"><img src="./static/images/logo.png" alt="Logo" style="height: 1.2em; vertical-align: middle; margin-right: 0.3em;">Self-transcendence: Is External Feature Guidance Indispensable for Accelerating Diffusion Transformer Training?</h1>
           <div class="is-size-5 publication-authors">
             <span class="author-block">
               <a href="https://scholar.google.com/citations?user=ZCDjTn8AAAAJ&hl">Lingchen Sun</a><sup>1,2</sup>,</span>
@@ -294,16 +293,16 @@
       </div>
       <div style="background-color: #edfbf0; padding: 1.5rem; border-radius: 8px; margin: 1.5rem 0; border-left: 4px solid #48c774;">
         <p style="margin-bottom: 1rem;">
-          <strong>[Answer]</strong>: No, not any feature is suitable. The most effective guiding features must satisfy <strong>two criteria</strong>:
+          <strong>[Answer]</strong>: No, not any feature is suitable. The desired internal guidance features should meet <strong>two requirements</strong>:
         </p>
         <p style="margin-bottom: 0.5rem;">
-          <strong>(1)</strong> They should have a <strong>clean structure</strong>, helping shallow blocks distinguish noise from signal.
+          <strong>(1)</strong> They should <strong>structurally clean</strong> to help shallow blocks separate noise from signal.
         </p>
         <p style="margin-bottom: 1rem;">
-          <strong>(2)</strong> They should be <strong>semantically discriminative</strong>, enabling shallow layers to learn effective representations.
+          <strong>(2)</strong> They should be <strong>semantically discriminative</strong> to help shallow layers learn effective representations.
         </p>
         <p style="margin-bottom: 0;">
-          To obtain such features without external supervision, we propose <strong>Self-Transcendence</strong>: align DiT features with clean VAE latents for structure, apply CFG for semantics, then use these internal features to supervise a new DiT from scratch—outperforming REPA in both quality and speed.
+          To obtain such features without external supervision, we propose <strong>Self-Transcendence</strong>, which aligns DiT features with clean VAE latents for structure and applies classifier-free guidance for semantics. These internal features then supervise a new DiT from scratch, leading to better generation quality and faster convergence than REPA.
         </p>
       </div>
       
@@ -407,22 +406,20 @@
       
       <!-- 第2个子部分 -->
       <h3 style="font-size: 1.4rem; font-weight: bold; color: #2c3e50; margin: 2rem 0 1rem 0;">
-        Self-Transcendence obtains better structural generation.
+        Self-Transcendence obtains better generation performance.
       </h3>
       <p>
-        We compare the vanilla SiT model, REPA-enhanced model, and our trained model across 100K to 400K iterations on two ImageNet classes, as
-        illustrated in Fig.4. Both our model and REPA show faster
-        convergence than the vanilla SiT model, and our method
-        tends to obtain better structural generation. For example, in
-        the shoe class, our method generates more realistic shapes
+        We also conduct text-to-image (T2I) generation experiments using the same setting (including training dataset evaluation protocol) as REPA. 
+        We can see that REPA improves over original MMDiT with cleaner structure and fewer artifacts. 
+        Our method further improves prompt alignment and visual performance, yielding more realistic results with faithful structure and illumination.
       </p>
       
       <!-- 图片2 -->
       <div style="text-align: center; margin: 2rem 0;">
-        <img src="./static/images/interactivegen.png" alt="interactivegen Figure" 
+        <img src="./static/images/t2i_show.jpg" alt="interactivegen Figure" 
              style="max-width: 80%; height: auto; border-radius: 8px;">
         <p style="margin-top: 0.5rem; font-size: 0.9rem; color: #666;">
-          <strong>Visual comparison</strong> of generated samples from SiT-XL/2 models at different training iterations. For all models, we apply the same seed, noise, and sampling strategy with a CFG scale of 4.0.
+          Qualitative comparison on <strong>text-to-image generation</strong> (MS-COCO)..
         </p>
       </div>
     </div>
