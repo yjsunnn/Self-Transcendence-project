@@ -303,7 +303,7 @@
           <strong>(2)</strong> They should be <strong>semantically discriminative</strong>, enabling shallow layers to learn effective representations.
         </p>
         <p style="margin-bottom: 0;">
-          To obtain such features without external supervision, we propose <strong>Self-Transcendence</strong>. We first align DiT features with clean VAE latent features for a short training phase to improve structural quality, then apply classifier-free guidance to intermediate features to enhance semantic discriminability. These enriched internal features, learned entirely within the model, are used as supervision to guide a new DiT model from scratch, achieving superior performance over REPA in both generation quality and convergence speed.
+          To obtain such features without external supervision, we propose <strong>Self-Transcendence</strong>: align DiT features with clean VAE latents for structure, apply CFG for semantics, then use these internal features to supervise a new DiT from scratch—outperforming REPA in both quality and speed.
         </p>
       </div>
       
