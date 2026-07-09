@@ -294,14 +294,16 @@
       </div>
       <div style="background-color: #edfbf0; padding: 1.5rem; border-radius: 8px; margin: 1.5rem 0; border-left: 4px solid #48c774;">
         <p style="margin-bottom: 1rem;">
-          <strong>[Answer]</strong>: No. We find that the most effective guiding features should meet <strong>two criteria</strong>:
-          </p>
-          <p style="margin-bottom: 0.5rem;">
-            <strong>(1)</strong> They should have a <strong>clean structure</strong>, in the sense that they can effectively help shallow blocks distinguish noise from signal.
-          </p>
-          <p style="margin-bottom: 0;">
-            <strong>(2)</strong> They should be <strong>semantically discriminative</strong>, making it easier for shallow layers to learn effective representations.
-          </p>
+          <strong>[Answer]</strong>: No, not any feature is suitable. The most effective guiding features must satisfy <strong>two criteria</strong>:
+        </p>
+        <p style="margin-bottom: 0.5rem;">
+          <strong>(1)</strong> They should have a <strong>clean structure</strong>, helping shallow blocks distinguish noise from signal.
+        </p>
+        <p style="margin-bottom: 1rem;">
+          <strong>(2)</strong> They should be <strong>semantically discriminative</strong>, enabling shallow layers to learn effective representations.
+        </p>
+        <p style="margin-bottom: 0;">
+          To obtain such features without external supervision, we propose <strong>Self-Transcendence</strong>. We first align DiT features with clean VAE latent features for a short training phase to improve structural quality, then apply classifier-free guidance to intermediate features to enhance semantic discriminability. These enriched internal features, learned entirely within the model, are used as supervision to guide a new DiT model from scratch, achieving superior performance over REPA in both generation quality and convergence speed.
         </p>
       </div>
       
